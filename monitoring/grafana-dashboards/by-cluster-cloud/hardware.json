@@ -78,10 +78,10 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "crdb_dedicated_sys_cpu_combined_percent_normalized{job='cockroachdb',cluster=~\"$cluster\",instance=~\"$node\"}",
+          "expr": "crdb_dedicated_sys_cpu_combined_percent_normalized{job='cockroachdb',cluster=~\"$cluster\",node=~\"$node\"}",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node}}",
           "refId": "A"
         }
       ],
@@ -170,10 +170,10 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "crdb_dedicated_sys_rss{job=\"cockroachdb\",cluster=~\"$cluster\",instance=~\"$node\"}",
+          "expr": "crdb_dedicated_sys_rss{job=\"cockroachdb\",cluster=~\"$cluster\",node=~\"$node\"}",
           "hide": false,
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node}}",
           "refId": "A"
         },
         {
@@ -271,9 +271,9 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "rate(crdb_dedicated_sys_host_disk_read_bytes{job=\"cockroachdb\",instance=~\"$node\",cluster=~\"$cluster\"}[$__rate_interval])",
+          "expr": "rate(crdb_dedicated_sys_host_disk_read_bytes{job=\"cockroachdb\",node=~\"$node\",cluster=~\"$cluster\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node}}",
           "refId": "A"
         }
       ],
@@ -359,9 +359,9 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "rate(crdb_dedicated_sys_host_disk_write_bytes{job=\"cockroachdb\",instance=~\"$node\",cluster=~\"$cluster\"}[$__rate_interval])",
+          "expr": "rate(crdb_dedicated_sys_host_disk_write_bytes{job=\"cockroachdb\",node=~\"$node\",cluster=~\"$cluster\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node}}",
           "refId": "A"
         }
       ],
@@ -449,10 +449,10 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "rate(crdb_dedicated_sys_host_disk_read_count{job=\"cockroachdb\",cluster=~\"$cluster\",instance=~\"$node\"}[$__rate_interval])",
+          "expr": "rate(crdb_dedicated_sys_host_disk_read_count{job=\"cockroachdb\",cluster=~\"$cluster\",node=~\"$node\"}[$__rate_interval])",
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node}}",
           "refId": "A"
         }
       ],
@@ -540,9 +540,9 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "rate(crdb_dedicated_sys_host_disk_write_count{job=\"cockroachdb\",cluster=~\"$cluster\",instance=~\"$node\"}[$__rate_interval])",
+          "expr": "rate(crdb_dedicated_sys_host_disk_write_count{job=\"cockroachdb\",cluster=~\"$cluster\",node=~\"$node\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node}}",
           "refId": "A"
         }
       ],
@@ -630,9 +630,9 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "rate(crdb_dedicated_sys_host_disk_iopsinprogress{job=\"cockroachdb\",cluster=~\"$cluster\",instance=~\"$node\"}[$__rate_interval])",
+          "expr": "rate(crdb_dedicated_sys_host_disk_iopsinprogress{job=\"cockroachdb\",cluster=~\"$cluster\",node=~\"$node\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node}}",
           "refId": "A"
         }
       ],
@@ -720,10 +720,10 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "crdb_dedicated_capacity_available{job=\"cockroachdb\",cluster=~\"$cluster\",instance=~\"$node\"}",
+          "expr": "crdb_dedicated_capacity_available{job=\"cockroachdb\",cluster=~\"$cluster\",node=~\"$node\"}",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node}}",
           "refId": "A"
         }
       ],
@@ -810,9 +810,9 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "rate(crdb_dedicated_sys_host_net_recv_bytes{job=\"cockroachdb\",cluster=~\"$cluster\",instance=~\"$node\"}[$__rate_interval])",
+          "expr": "rate(crdb_dedicated_sys_host_net_recv_bytes{job=\"cockroachdb\",cluster=~\"$cluster\",node=~\"$node\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node}}",
           "refId": "A"
         }
       ],
@@ -900,9 +900,9 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": true,
-          "expr": "rate(crdb_dedicated_sys_host_net_send_bytes{job=\"cockroachdb\",cluster=~\"$cluster\",instance=~\"$node\"}[$__rate_interval])",
+          "expr": "rate(crdb_dedicated_sys_host_net_send_bytes{job=\"cockroachdb\",cluster=~\"$cluster\",node=~\"$node\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node}}",
           "refId": "A"
         }
       ],
@@ -1006,7 +1006,7 @@
           "type": "prometheus",
           "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values(sys_uptime{job=\"cockroachdb\",cluster=\"$cluster\"},instance)",
+        "definition": "label_values(sys_uptime{job=\"cockroachdb\",cluster=\"$cluster\"},node)",
         "hide": 0,
         "includeAll": true,
         "label": "Node",
@@ -1014,7 +1014,7 @@
         "name": "node",
         "options": [],
         "query": {
-          "query": "label_values(sys_uptime{job=\"cockroachdb\",cluster=\"$cluster\"},instance)",
+          "query": "label_values(sys_uptime{job=\"cockroachdb\",cluster=\"$cluster\"},node)",
           "refId": "Prometheusa-node-Variable-Query"
         },
         "refresh": 1,
