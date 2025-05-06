@@ -975,7 +975,7 @@
           "type": "prometheus",
           "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "sys_uptime{job=\"cockroachdb\"}",
+        "definition": "crdb_dedicated_sys_uptime{job=\"cockroachdb\"}",
         "hide": 0,
         "includeAll": false,
         "label": "Cluster",
@@ -983,7 +983,7 @@
         "name": "cluster",
         "options": [],
         "query": {
-          "query": "sys_uptime{job=\"cockroachdb\"}",
+          "query": "crdb_dedicated_sys_uptime{job=\"cockroachdb\"}",
           "refId": "Prometheusa-cluster-Variable-Query"
         },
         "refresh": 2,
@@ -1006,7 +1006,7 @@
           "type": "prometheus",
           "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values(sys_uptime{job=\"cockroachdb\",cluster=\"$cluster\"},node)",
+        "definition": "label_values(crdb_dedicated_sys_uptime{job=\"cockroachdb\",cluster=\"$cluster\"},node)",
         "hide": 0,
         "includeAll": true,
         "label": "Node",
@@ -1014,7 +1014,7 @@
         "name": "node",
         "options": [],
         "query": {
-          "query": "label_values(sys_uptime{job=\"cockroachdb\",cluster=\"$cluster\"},node)",
+          "query": "label_values(crdb_dedicated_sys_uptime{job=\"cockroachdb\",cluster=\"$cluster\"},node)",
           "refId": "Prometheusa-node-Variable-Query"
         },
         "refresh": 1,
